@@ -1,0 +1,1 @@
+Rails 7.1.2 template application with user authentication.
