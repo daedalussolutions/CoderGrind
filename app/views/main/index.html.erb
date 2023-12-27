@@ -1,1 +1,11 @@
-<h1>Homepage</h1>
+
+
+<% if @statistics %>
+  <h1><%= @user.username %></h1>
+  <p>XP: <%= @statistics.xp %></p>
+  <p>Level: <%= @statistics.level %></p>
+  <p>Time Active: <%= @statistics.time_active %> minutes</p>
+  <a href="#">Log Session</a> 
+<% else %>
+  <p>Please log in to track your coding.</p>
+<% end %>
