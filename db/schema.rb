@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_27_054238) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_27_230055) do
+  create_table "log_entries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "title"
+    t.string "project"
+    t.integer "time"
+    t.integer "lines"
+    t.integer "characters"
+    t.string "language"
+    t.string "framework"
+    t.string "contributions"
+    t.index ["user_id"], name: "index_log_entries_on_user_id"
+  end
+
   create_table "statistics", force: :cascade do |t|
     t.integer "xp"
     t.integer "level"
@@ -30,5 +45,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_27_054238) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "log_entries", "users"
   add_foreign_key "statistics", "users"
 end
