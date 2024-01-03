@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background: rgba(255, 255, 255, 0.21);">
+  <div class="container-fluid">
+    <a class="navbar-brand " href="/">CoderGrind</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/account">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+  </div>
+</nav>
+<div><%= notice %></div>
+<div><%= alert %></div>
+<% if user_signed_in? %>
+      <%= link_to "Edit Password", edit_password_path %>
+      <%= button_to "Log Out", session_path, method: :delete %>
+  <% else %>
+      <%= link_to "Sign Up", new_registration_path %>
+      <%= link_to "Log In", new_session_path %>
+  <% end %>
+  

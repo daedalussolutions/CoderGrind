@@ -1,6 +1,7 @@
 class MainController < ApplicationController
     def index
-        @user = current_user
-        @statistics = @user.statistic if @user
+        if @user
+            redirect_to '/dashboard'
+        end
     end
 end

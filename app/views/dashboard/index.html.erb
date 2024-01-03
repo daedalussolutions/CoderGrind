@@ -1,87 +1,98 @@
 <% if @statistics %>
-  <h1><%= @user.username %></h1>
-  <p>Level: <%= @statistics.level %></p>
-  <p>XP: <%= @statistics.xp %></p>
-  <p>Time Active: <%= @statistics.time_active %> hours</p>
-<% else %>
-  <p>Please log in to track your coding.</p>
+<div class="player-statistics-container container">
+  <h1 class="username"><%= @user.username %></h1>
+  <div class="statistics">
+    <p>Level: <%= @statistics.level %></p>
+    <p>XP: <%= @statistics.xp %></p>
+    <p>Time Active: <%= @statistics.time_active %> hours</p>
+  </div>
+</div>
 <% end %>
 
-<h2>Your Log Entries:</h2>
-<% if @user.log_entries.any? %>
-  <ul>
-    <% @user.log_entries.each do |log_entry| %>
-      <li>
-      <%= log_entry.title %><br>
-      <%= log_entry.project %><br>
-      Session length: <%= log_entry.time %> hours.<br>
-      <%= log_entry.language %><br>
-      
-      <% if log_entry.framework != nil %>
-        Framework: <%= log_entry.framework %><br>
-      <% end %>
 
-      <% if log_entry.lines != nil %>
-        Lines coded: <%= log_entry.lines %><br>
-      <% end %>
-
-      <% if log_entry.characters != nil %>
-        Characters: <%= log_entry.characters %><br>
-      <% end %>
-
-      <% if log_entry.contributions != nil %>
-        Contributions (commits): <%= log_entry.contributions %><br>
-      <% end %>
-      <%= button_to 'Delete', log_entries_path(log_entry), method: :delete,  data: { confirm: 'Are you sure?'} %>
-      </li>
+<div class="log-entries">
+  <div class="log-entries-container container">
+    <h2>Your Log Entries:</h2>
+    <% if @user.log_entries.any? %>
+      <ul>
+        <% @user.log_entries.each do |log_entry| %>
+          <li>
+          <%= log_entry.title %><br>
+          <%= log_entry.project %><br>
+          Session length: <%= log_entry.time %> hours.<br>
+          <%= log_entry.language %><br>
+  
+          <% if log_entry.framework != nil %>
+            Framework: <%= log_entry.framework %><br>
+          <% end %>
+  
+          <% if log_entry.lines != nil %>
+            Lines coded: <%= log_entry.lines %><br>
+          <% end %>
+  
+          <% if log_entry.characters != nil %>
+            Characters: <%= log_entry.characters %><br>
+          <% end %>
+  
+          <% if log_entry.contributions != nil %>
+            Contributions (commits): <%= log_entry.contributions %><br>
+          <% end %>
+          <%= button_to 'Delete', log_entries_path(log_entry), method: :delete,  data: { confirm: 'Are you sure?'} %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No log entries yet.</p>
     <% end %>
-  </ul>
-<% else %>
-  <p>No log entries yet.</p>
-<% end %>
-
-<%= form_with(model: LogEntry.new, url: log_entries_path, method: :post) do |form| %>
-
-  <div>
-    <%= form.label :title %>
-    <%= form.text_area :title, size: "20x1" %>
   </div>
-
-  <div>
-    <%= form.label :project %>
-    <%= form.text_area :project, size: "20x1" %>
+  
+  
+  
+  <div class="log-entry-container container">
+    <%= form_with(model: LogEntry.new, url: log_entries_path, method: :post) do |form| %>
+  
+      <div>
+        <%= form.label :title %>
+        <%= form.text_area :title, size: "20x1" %>
+      </div>
+  
+      <div>
+        <%= form.label :project %>
+        <%= form.text_area :project, size: "20x1" %>
+      </div>
+  
+      <div>
+        <%= form.label "Time (hours)"  %>
+        <%= form.number_field :time, step: 0.25 %>
+      </div>
+  
+      <div>
+        <%= form.label :language %>
+        <%= form.text_area :language, size: "20x1" %>
+      </div>
+  
+      <div>
+        <%= form.label :framework %>
+        <%= form.text_area :framework, size: "20x1" %>
+      </div>
+  
+      <div>
+        <%= form.label :lines  %>
+        <%= form.number_field :lines, step: 1 %>
+      </div>
+  
+      <div>
+        <%= form.label :characters  %>
+        <%= form.number_field :characters, step: 1 %>
+      </div>
+  
+      <div>
+        <%= form.label :contributions %>
+        <%= form.text_area :contributions, size: "20x1" %>
+      </div>
+  
+  
+      <%= form.submit 'Create Log Entry' %>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label "Time (hours)"  %>
-    <%= form.number_field :time, step: 0.25 %>
-  </div>
-
-  <div>
-    <%= form.label :language %>
-    <%= form.text_area :language, size: "20x1" %>
-  </div>
-
-  <div>
-    <%= form.label :framework %>
-    <%= form.text_area :framework, size: "20x1" %>
-  </div>
-
-  <div>
-    <%= form.label :lines  %>
-    <%= form.number_field :lines, step: 1 %>
-  </div>
-
-  <div>
-    <%= form.label :characters  %>
-    <%= form.number_field :characters, step: 1 %>
-  </div>
-
-  <div>
-    <%= form.label :contributions %>
-    <%= form.text_area :contributions, size: "20x1" %>
-  </div>
-
-
-  <%= form.submit 'Create Log Entry' %>
-<% end %>
+</div>
