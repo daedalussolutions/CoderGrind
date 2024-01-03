@@ -1,4 +1,4 @@
-class MainController < ApplicationController
+class DashboardController < ApplicationController
     def index
         @user = current_user
         @statistics = @user.statistic if @user
