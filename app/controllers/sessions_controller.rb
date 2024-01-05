@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-    def new
-
+    def show
+        redirect_to root_path
     end
 
     def create
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             redirect_to '/dashboard', notice: "You have signed in."
         else
             flash[:alert] = "Invalid email or password."
-            render :new, status: :unprocessable_entity
+            redirect_to root_path
         end
     end
 
