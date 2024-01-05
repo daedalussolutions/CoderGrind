@@ -14,6 +14,29 @@ body {
     border-radius: 8px;
     box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
+
+a {
+    color: #fff;
+    background-image: linear-gradient(#ff00d4, #ff0b0b);
+    border: 1px solid #c6c6c6;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0);
+    padding: 5px;
+    text-shadow: 0px 0 #000, 0px 0 #000, 0 0px #000, 0 0px #000,
+             0px 0px #000, 0px 0px #000, 0px 0px #000, 0px 0px #000;
+    box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    text-decoration: none;
+}
+
+.main-form {
+}
+
+.main-form input{
+    margin: 10px;
+}
+
+.login-buttons-container a{
+}
 .navbar {
     margin: 0 auto;
 }
@@ -24,7 +47,7 @@ body {
 
 .main-container{
     width: 40%;
-    height: 30%;
+    height: 40%;
     color: #fff;
     position: relative;
     background-image: linear-gradient(#0D2289, #06093B);
