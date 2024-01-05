@@ -6,10 +6,10 @@ class LogEntriesController < ApplicationController
 
         if @log_entry.save
             current_user.update_statistics
-            redirect_to root_path, notice: 'Logged session.'
+            redirect_to "/dashboard", notice: 'Logged session.'
         else
             puts @log_entry.errors.full_messages
-            redirect_to root_path, notice: 'Session not logged'
+            redirect_to "/dashboard", notice: 'Session not logged'
         end
     end
 
@@ -20,7 +20,7 @@ class LogEntriesController < ApplicationController
         @log_entry = current_user.log_entries.find_by(params[:id])
         @log_entry.destroy
         current_user.update_statistics
-        redirect_to root_path, notice: 'Log entry deleted.'
+        redirect_to "/dashboard", notice: 'Log entry deleted.'
     end
 
     private

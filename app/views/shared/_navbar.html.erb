@@ -2,22 +2,30 @@
   <div class="container-fluid">
     <a class="navbar-brand " href="/">CoderGrind</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="/account">Account</a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
         </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <div class="nav-link"><%= link_to "Edit Password", edit_password_path %></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/account">Account</a>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link"><%= button_to "Log Out", session_path, method: :delete %></div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <div class="nav-link"><%= button_to "Sign Up", new_registration_path %></div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link"><%= link_to "Log In", new_session_path %></div>
+          </li>
+        <% end %>
       </ul>
   </div>
 </nav>
-<div><%= notice %></div>
 <div><%= alert %></div>
-<% if user_signed_in? %>
-      <%= link_to "Edit Password", edit_password_path %>
-      <%= button_to "Log Out", session_path, method: :delete %>
-  <% else %>
-      <%= link_to "Sign Up", new_registration_path %>
-      <%= link_to "Log In", new_session_path %>
-  <% end %>
   
