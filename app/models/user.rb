@@ -40,9 +40,33 @@ class User < ApplicationRecord
         else
             statistic.update(xp: total_xp, level: [current_level - 1, 1].max)
         end
-  end
+    end
 
-       
+    def leveling_progress
+        current_xp = statistic.xp
+        current_level, next_level = calculate_level_threshold(statistic.level)
+
+        total_xp_needed = next_level - current_level
+        xp_progress = current_xp - current_level
+
+        result = (xp_progress.to_f / total_xp_needed * 100).clamp(0, 100).round(0)
+
+        result
+    end
+
+    def xp_toward_next_level
+        current_xp = statistic.xp
+        current_level, next_level = calculate_level_threshold(statistic.level)
+    
+        xp_toward_next_level = [current_xp - current_level, 0].max
+        xp_toward_next_level
+    end
+    
+    def xp_needed_for_next_level
+        current_level, next_level = calculate_level_threshold(statistic.level)
+    
+        xp_needed_for_next_level = next_level - current_level
+        xp_needed_for_next_level
     end
 
     private
@@ -73,9 +97,5 @@ class User < ApplicationRecord
         previous_level_threshold = (base_xp * (level - 1)**exponent).floor
     
         [previous_level_threshold, current_level_threshold]
-      end
-
-    
-
-
-
+    end
+end

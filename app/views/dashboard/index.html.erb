@@ -10,40 +10,55 @@
   </div>
   <% end %>
 
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: <%= @user.leveling_progress %>%" aria-valuenow="<%= @user.leveling_progress %>" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <div class="xp-needed">
+    <%= @user.xp_toward_next_level %>/<%= @user.xp_needed_for_next_level %>
+  </div>
+
   <div class="log-entries-container">
     <div class="log-entry-form-container container">
       <%= form_with(model: LogEntry.new, url: log_entries_path, method: :post) do |form| %>
     
         <div>
           <%= form.text_area :title, size: "20x1", placeholder: "Title" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
         </div>
     
         <div>
           <%= form.text_area :project, size: "20x1", placeholder: "Project" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
         </div>
     
         <div>
           <%= form.number_field :time, step: 0.25, placeholder: "Time (hours)" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
         </div>
     
         <div>
           <%= form.text_area :language, size: "20x1", placeholder: "Language" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
         </div>
     
         <div>
           <%= form.text_area :framework, size: "20x1", placeholder: "Framework" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
         </div>
     
         <div>
           <%= form.number_field :lines, step: 1, placeholder: "Lines of code" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
         </div>
     
         <div>
           <%= form.number_field :characters, step: 1, placeholder: "Characters" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
         </div>
     
         <div>
           <%= form.text_area :contributions, size: "20x1", placeholder: "Contributions" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
         </div>
     
     
