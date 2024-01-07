@@ -1,0 +1,18 @@
+<div class="account-container">
+    <div class="account-actions-container container">
+        <%= link_to "Edit Password", edit_password_path, class: "button" %>
+        <%= link_to "Delete Account", session_path, class: "button" %>
+    </div>
+
+    <div class="player-statistics-container container">
+        <h1 class="username"><%= @user.username %></h1>
+        <div class="statistics">
+          <p>Level: <%= @statistics.level %></p>
+          <p>XP: <%= @statistics.xp %></p>
+          <p>Time Active: <%= @statistics.time_active %> hours</p>
+        </div>
+      </div>
+    
+    
+</div>
+
