@@ -69,6 +69,30 @@ class User < ApplicationRecord
         xp_needed_for_next_level
     end
 
+    def most_used_language
+        language_time = Hash.new(0)
+
+        log_entries.each do |log_entry|
+            language_time[log_entry.language] += log_entry.time 
+        end
+
+        most_used_language = language_time.max_by {|_language, time| time}
+
+        most_used_language&.first
+    end
+
+    def daily_streak
+        log_entries_by_date = log_entries.group_by(&:date)
+        current_date = Date.current
+        streak = 0
+
+        while log_entries_by_date[current_date].present?
+            streak += 1
+            current_date -= 1.day 
+        end
+        streak
+    end
+
     private
 
     def create_default_statistic

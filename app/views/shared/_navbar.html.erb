@@ -6,6 +6,9 @@
           <li class="nav-item">
             <div class="nav-link"><%= link_to "Account", account_path %></div>
           </li>
+          <div class="daily-streak-counter">
+            <%= "🔥 #{@user.daily_streak}" %>
+          </div>
           <li class="nav-item">
             <div class="nav-link"><%= button_to "Log Out", session_path, method: :delete %></div>
           </li>

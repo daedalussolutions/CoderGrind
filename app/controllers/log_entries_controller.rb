@@ -3,6 +3,7 @@ class LogEntriesController < ApplicationController
 
     def create
         @log_entry = current_user.log_entries.build(log_entry_params)
+        @log_entry.date = Date.current
 
         if @log_entry.save
             current_user.update_statistics

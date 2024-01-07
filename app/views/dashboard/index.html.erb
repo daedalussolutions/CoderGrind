@@ -3,9 +3,8 @@
   <div class="player-statistics-container container">
     <h1 class="username"><%= @user.username %></h1>
     <div class="statistics">
-      <p>Level: <%= @statistics.level %></p>
-      <p>XP: <%= @statistics.xp %></p>
-      <p>Time Active: <%= @statistics.time_active %> hours</p>
+      <%= "Level #{@statistics.level}"  %><br>
+      <%= "#{@statistics.xp} Total XP"  %><br>
     </div>
   </div>
   <% end %>
@@ -66,7 +65,7 @@
       <% end %>
   </div>
   <div class="user-logs-container container">
-  <h2>Your Log Entries:</h2>
+  <h2>Log Entries</h2>
   <% if @user.log_entries.any? %>
     <ul class="log-entries-list">
       <% @user.log_entries.each do |log_entry| %>
@@ -92,10 +91,14 @@
             <% if log_entry.contributions.present? %>
               Contributions (commits): <%= log_entry.contributions %><br>
             <% end %>
+
+            
           </div>
 
           <div class="log-entry-actions">
+            <%= log_entry.date %>
             <%= button_to 'Delete', log_entries_path(log_entry), method: :delete, data: { confirm: 'Are you sure?'} %>
+            
           </div>
         </li>
       <% end %>

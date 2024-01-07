@@ -9,4 +9,5 @@ class LogEntry < ApplicationRecord
     validates :language, presence: true
     validates :framework, length: { maximum: 20 }, allow_blank: true
     validates :contributions, length: { maximum: 20 }, allow_blank: true
+    validates :date, presence: true
 end
