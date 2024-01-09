@@ -101,6 +101,22 @@ textarea:focus + .hand-icon {
     margin: auto 20%;
 }
 
+input, select, optgroup, textarea {
+    width: 60%;
+    color: #fff;
+    margin: 5px;
+    background: 0;
+    border: none;
+    outline: none;
+    border-bottom: 3px #fff dashed;
+    
+
+    &:focus{
+        border: none;
+        border-bottom: 3px #00c3ff dashed;
+    }
+}
+
 .main-container {
     width: 40%;
     height: 100%;
@@ -178,7 +194,8 @@ textarea:focus + .hand-icon {
 }
 
 .log-entry-form-container {
-    max-height: 360px;
+    text-align: center;
+    max-height: 400px;
 }
 
 .log-entries-list {

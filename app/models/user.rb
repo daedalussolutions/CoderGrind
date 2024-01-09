@@ -22,6 +22,7 @@ class User < ApplicationRecord
         total_xp = 0
         total_time = 0
         level = 1
+        streak = 0
 
         log_entries.each do |log_entry|
             total_xp += calculate_xp(log_entry)
@@ -29,6 +30,8 @@ class User < ApplicationRecord
         end
 
         statistic.update(time_active: total_time)
+
+        statistic.update(streak: daily_streak)
 
         current_level = statistic.level
         previous_level_threshold, current_level_threshold = calculate_level_threshold(current_level)
@@ -84,7 +87,7 @@ class User < ApplicationRecord
     def daily_streak
         log_entries_by_date = log_entries.group_by(&:date)
         current_date = Date.current
-        streak = 0
+        streak = statistic.streak
 
         while log_entries_by_date[current_date].present?
             streak += 1
