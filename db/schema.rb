@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_09_204926) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_09_224022) do
   create_table "log_entries", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,13 +28,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_204926) do
   end
 
   create_table "statistics", force: :cascade do |t|
-    t.integer "xp"
-    t.integer "level"
-    t.integer "time_active"
+    t.integer "xp", default: 0
+    t.integer "level", default: 1
+    t.integer "time_active", default: 0
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "streak"
+    t.integer "streak", default: 0
     t.index ["user_id"], name: "index_statistics_on_user_id"
   end
 
