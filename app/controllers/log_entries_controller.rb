@@ -4,6 +4,8 @@ class LogEntriesController < ApplicationController
     def index
         @user = current_user
         @statistics = @user.statistic if @user
+
+        @log_entries = current_user.log_entries.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     end
 
     def create

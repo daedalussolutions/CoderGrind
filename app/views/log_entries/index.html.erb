@@ -1,0 +1,44 @@
+<div class="user-logs-container container">
+  <h2>Log Entries</h2>
+  <% if @log_entries.any? %>
+    <ul class="log-entries-list">
+      <% @log_entries.each do |log_entry| %>
+         <li class="log-entry-item">
+          <div class="log-entry-details">
+            <strong><%= log_entry.title %></strong><br>
+            <strong><%= log_entry.project %></strong><br>
+            Session length: <%= log_entry.time %> hours.<br>
+            Language: <%= log_entry.language %><br>
+
+            <% if log_entry.framework.present? %>
+              Framework: <%= log_entry.framework %><br>
+            <% end %>
+
+            <% if log_entry.lines.present? %>
+              Lines coded: <%= log_entry.lines %><br>
+            <% end %>
+
+            <% if log_entry.characters.present? %>
+              Characters: <%= log_entry.characters %><br>
+            <% end %>
+
+            <% if log_entry.contributions.present? %>
+              Contributions (commits): <%= log_entry.contributions %><br>
+            <% end %>
+          </div>
+
+          <div class="log-entry-actions">
+            <%= log_entry.date %>
+            <%= button_to 'Delete', log_entries_path(log_entry), method: :delete, data: { confirm: 'Are you sure?'} %>
+            <%= link_to 'Edit', edit_log_entries_path(log_entry), method: :get %>
+          </div>
+
+        </li>
+      <% end %>
+    </ul>
+
+    <%= will_paginate @log_entries %>
+  <% else %>
+    <p>No log entries yet.</p>
+  <% end %>
+</div>

@@ -66,7 +66,7 @@
   <h2>Log Entries</h2>
   <% if @user.log_entries.any? %>
     <ul class="log-entries-list">
-      <% @user.log_entries.each do |log_entry| %>
+      <% @log_entries.each do |log_entry| %>
         <li class="log-entry-item">
           <div class="log-entry-details">
             <strong><%= log_entry.title %></strong><br>
@@ -89,19 +89,19 @@
             <% if log_entry.contributions.present? %>
               Contributions (commits): <%= log_entry.contributions %><br>
             <% end %>
-
-            
           </div>
 
           <div class="log-entry-actions">
             <%= log_entry.date %>
             <%= button_to 'Delete', log_entries_path(log_entry), method: :delete, data: { confirm: 'Are you sure?'} %>
             <%= link_to 'Edit', edit_log_entries_path(log_entry), method: :get %>
-            
           </div>
+
         </li>
       <% end %>
     </ul>
+    <% will_paginate @log_entries %>
+    <%= link_to 'All Entries', log_entries_path %>
   <% else %>
     <p>No log entries yet.</p>
   <% end %>
