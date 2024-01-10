@@ -1,0 +1,47 @@
+<div class="log-entry-form-container container">
+      <%= form_with(model: @log_entry, url: log_entries_path(@log_entry), method: :patch) do |form| %>
+    
+        <div>
+          <%= form.text_field :title, placeholder: "Title" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
+        </div>
+    
+        <div>
+          <%= form.text_field :project, placeholder: "Project" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
+        </div>
+    
+        <div>
+          <%= form.number_field :time, step: 1, in: 1..8, placeholder: "Time (hours)" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
+        </div>
+    
+        <div>
+          <%= form.text_field :language, size: "20x1", placeholder: "Language" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
+        </div>
+    
+        <div>
+          <%= form.text_field :framework, size: "20x1", placeholder: "Framework (optional)" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
+        </div>
+    
+        <div>
+          <%= form.number_field :lines, step: 1, placeholder: "Lines of code (optional)" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
+        </div>
+    
+        <div>
+          <%= form.number_field :characters, step: 1, placeholder: "Characters (optional)" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
+        </div>
+    
+        <div>
+          <%= form.number_field :contributions, placeholder: "Contributions (optional)" %>
+          <div class="hand-icon"><%= image_tag("icons/cursor.ico") %></div>
+        </div>
+    
+    
+        <%= form.submit 'Update Log Entry' %>
+      <% end %>
+  </div>

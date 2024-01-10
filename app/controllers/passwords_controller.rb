@@ -2,6 +2,8 @@ class PasswordsController < ApplicationController
     before_action :authenticate_user!
 
     def edit
+        @user = current_user
+        @statistics = @user.statistic if @user
     end
 
     def update

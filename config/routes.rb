@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resource :password_reset
   resource :password
 
-  resource :log_entries, only: [:index, :create, :destroy]
+  resource :log_entries, only: [:index, :create, :destroy, :edit, :patch, :update]
 
 
   # Defines the root path route ("/")

@@ -8,6 +8,11 @@ body {
     background-color: #000;
 }
 
+a {
+    text-shadow: 0px 0 #000, 0px 0 #000, 0 0px #000, 0 0px #000,
+        0px 0px #000, 0px 0px #000, 0px 0px #000, 0px 0px #000;
+    text-decoration: none;
+}
 .hand-icon {
     display: none;
 }
@@ -38,21 +43,24 @@ textarea:focus + .hand-icon {
 .button,
 [type=button],
 [type=reset],
-[type=submit] {
+[type=submit],
+.log-entry-actions a{
+    margin: 5px;
     color: #fff;
     background-image: linear-gradient(#ff00d4, #ff0b0b);
     border: 1px solid #c6c6c6;
     border-radius: 8px;
+
+    &:hover{
+        -webkit-box-shadow: 0px 0px 5px 3px rgba(255,255,255,1);
+        -moz-box-shadow: 0px 0px 5px 3px rgba(255,255,255,1);
+        box-shadow: 0px 0px 5px 3px rgba(255,255,255,1);
+    }
     
 }
 
-.button:hover,
-[type=button]:hover,
-[type=reset]:hover,
-[type=submit]:hover {
-    -webkit-box-shadow: 0px 0px 5px 3px rgba(255,255,255,1);
--moz-box-shadow: 0px 0px 5px 3px rgba(255,255,255,1);
-box-shadow: 0px 0px 5px 3px rgba(255,255,255,1);
+.log-entry-actions a {
+    padding: 2px 16px 2px 17px;
 }
 
 .main-container a {
@@ -248,4 +256,9 @@ input, select, optgroup, textarea {
 
 .account-actions-container a {
     margin: 5% 35%;
+}
+
+.password-edit-container {
+    width: 40%;
+    margin: 10% auto;
 }

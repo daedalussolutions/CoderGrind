@@ -96,6 +96,7 @@
           <div class="log-entry-actions">
             <%= log_entry.date %>
             <%= button_to 'Delete', log_entries_path(log_entry), method: :delete, data: { confirm: 'Are you sure?'} %>
+            <%= link_to 'Edit', edit_log_entries_path(log_entry), method: :get %>
             
           </div>
         </li>
