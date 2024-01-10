@@ -1,13 +1,11 @@
 <div class="dashboard-container">
-  <% if @statistics %>
-  <div class="player-statistics-container container">
+  <a href="/account" class="player-statistics-container container">
     <h1 class="username"><%= @user.username %></h1>
     <div class="statistics">
       <%= "Level #{@statistics.level}"  %><br>
       <%= "#{@statistics.xp} Total XP"  %><br>
     </div>
-  </div>
-  <% end %>
+  </a>
 
   <div class="progress">
     <div class="progress-bar" role="progressbar" style="width: <%= @user.leveling_progress %>%" aria-valuenow="<%= @user.leveling_progress %>" aria-valuemin="0" aria-valuemax="100"></div>
