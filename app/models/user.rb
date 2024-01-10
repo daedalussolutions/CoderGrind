@@ -89,6 +89,10 @@ class User < ApplicationRecord
         current_date = Date.current
         streak = statistic.streak
 
+        if !log_entries_by_date[current_date.day - 1].present?
+            streak = 0
+        end
+
         while log_entries_by_date[current_date].present?
             streak += 1
             current_date -= 1.day 
