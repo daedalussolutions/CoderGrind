@@ -45,7 +45,6 @@ textarea:focus + .hand-icon {
 [type=reset],
 [type=submit],
 .log-entry-actions a{
-    margin: 5px;
     color: #fff;
     background-image: linear-gradient(#ff00d4, #ff0b0b);
     border: 1px solid #c6c6c6;
@@ -59,7 +58,12 @@ textarea:focus + .hand-icon {
     
 }
 
+.user-logs-container a{
+    text-align: center;
+    margin: 0 40%;
+}
 .log-entry-actions a {
+    margin: 5px;
     padding: 2px 16px 2px 17px;
 }
 
@@ -208,11 +212,6 @@ input, select, optgroup, textarea {
 
 .user-logs-container {
     justify-content: right;
-}
-
-.user-logs-container a{
-    text-align: center;
-    margin: 0 40%;
 }
 
 .log-entry-form-container {
