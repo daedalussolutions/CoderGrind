@@ -101,7 +101,7 @@
       <% end %>
     </ul>
     <% will_paginate @log_entries %>
-    <%= link_to 'All Entries', log_entries_path %>
+    <%= link_to 'All Entries', log_entries_path, class: "button" %>
   <% else %>
     <p>No log entries yet.</p>
   <% end %>

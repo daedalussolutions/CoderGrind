@@ -108,7 +108,8 @@ textarea:focus + .hand-icon {
     color: #fff;
 }
 .dashboard-container {
-    margin: auto 20%;
+    margin: 2% auto;
+    width: 70%;
 }
 
 input, select, optgroup, textarea {
@@ -193,7 +194,7 @@ input, select, optgroup, textarea {
 .player-statistics-container {
     //padding: 2%; Uncomment when adding more statistics.
     text-align: center;
-
+    max-width: none;
     &:hover{
         -webkit-box-shadow: 2px 3px 40px -1px rgba(255,255,255,1);
     -moz-box-shadow: 2px 3px 40px -1px rgba(255,255,255,1);
@@ -209,6 +210,11 @@ input, select, optgroup, textarea {
     justify-content: right;
 }
 
+.user-logs-container a{
+    text-align: center;
+    margin: 0 40%;
+}
+
 .log-entry-form-container {
     text-align: center;
     max-height: 400px;
@@ -219,9 +225,6 @@ input, select, optgroup, textarea {
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    /* Two columns with a minimum width of 300px */
-    gap: 20px;
-    /* Adjust the gap between items */
 }
 
 .log-entry-item {
@@ -232,6 +235,7 @@ input, select, optgroup, textarea {
     padding: 15px;
     display: flex;
     justify-content: space-between;
+    margin: 10px;
 }
 
 .log-entry-details {
@@ -261,4 +265,21 @@ input, select, optgroup, textarea {
 .password-edit-container {
     width: 40%;
     margin: 10% auto;
+}
+
+.log-entries-page-list{
+    display: block;
+}
+
+.pagination {
+    text-align: center;
+    display: inline;
+}
+
+.pagination a {
+    color: #00c3ff;
+}
+
+.entry-logs-container {
+    margin: 2% auto;
 }
