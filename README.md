@@ -17,3 +17,4 @@ TODO:
 - Add a currency and a shop
 - Items in the shop could be for boosting xp, re-doing a previous day etc.
 
+![screencap](https://github.com/daedalussolutions/CoderGrind/assets/119969921/21933254-998c-439a-b9e8-dd3e0bf2c72f)
