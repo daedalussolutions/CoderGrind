@@ -107,13 +107,15 @@ class User < ApplicationRecord
     end
 
     def calculate_xp(log_entry)
+        xp_earned = log_entry.time * 250
+
         if log_entry.characters.present?
-          log_entry.characters * 1
+          xp_earned += log_entry.characters * 1
         elsif log_entry.lines.present?
-          log_entry.lines * 50
-        else
-          log_entry.time * 250
+          xp_earned += log_entry.lines * 20
         end
+
+        xp_earned
     end
 
     def calculate_time(log_entry)
