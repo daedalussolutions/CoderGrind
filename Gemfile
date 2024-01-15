@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 
 gem "dotenv-rails"
 
+gem "pg"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
