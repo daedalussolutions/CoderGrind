@@ -14,14 +14,19 @@ a {
     text-decoration: none;
 }
 .hand-icon {
-    display: none;
-}
-
-input:focus + .hand-icon {
     display: inline-block;
+    width: 1px;
 }
 
-textarea:focus + .hand-icon {
+.hand-icon img {
+    visibility: hidden;
+}
+
+input:focus + .hand-icon img{
+    visibility: visible;
+}
+
+textarea:focus + .hand-icon img{
     display: inline-block;
 }
 
