@@ -298,4 +298,15 @@ input, select, optgroup, textarea {
     .mobile-new-line {
         display: block;
     }
+
+    .log-entries-container {
+        display: block;
+    }
   }
+
+  @media screen and (max-width: 600px) {
+    .log-entry-item {
+        width: 85%;
+    }
+  }
+
