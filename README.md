@@ -7,6 +7,7 @@ sessions to a database and awards experience points for completing and logging t
 
 TODO:
 
+- ***MAKE IT RESPONSIVE
 - Possibly remove statistics table and add the columns to user model.
 - Create a React frontend with animations. 
 - Comments/discussion/forum section
