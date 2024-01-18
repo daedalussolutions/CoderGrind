@@ -8,6 +8,9 @@ body {
     background-color: #000;
 }
 
+.mobile-new-line {
+    display: none;
+}
 a {
     text-shadow: 0px 0 #000, 0px 0 #000, 0 0px #000, 0 0px #000,
         0px 0px #000, 0px 0px #000, 0px 0px #000, 0px 0px #000;
@@ -286,3 +289,13 @@ input, select, optgroup, textarea {
 .entry-logs-container {
     margin: 2% auto;
 }
+
+@media screen and (max-width: 1000px) {
+    .main-container {
+        width: 95%;
+    }
+
+    .mobile-new-line {
+        display: block;
+    }
+  }
